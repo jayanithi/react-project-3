@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  color-scheme: dark;
+  --app-bg: #10131c;
+  --panel-bg: #191e2b;
+  --border: #282e3d;
+  --muted: #9ba3b7;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { min-height: 100%; width: 100%; margin: 0; }
+body {
+  min-width: 320px;
+  background: var(--app-bg);
+  color: #f4f5fb;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  overflow-x: hidden;
+}
+button, input, textarea { font: inherit; }
+a { color: inherit; text-decoration: none; }
+
+.app-shell { min-height: 100vh; width: 100%; display: flex; background: var(--app-bg); }
+.main-area { min-width: 0; width: 100%; flex: 1; display: flex; flex-direction: column; }
+.page-content { width: 100%; max-width: 1600px; min-width: 0; margin: 0 auto; padding: 28px 32px 40px; }
+.page-heading {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 16px; margin-bottom: 24px; min-width: 0;
+}
+.page-heading p { color: var(--muted); margin: 7px 0 0; }
+.heading-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.surface { background: var(--panel-bg); border: 1px solid var(--border); border-radius: 16px; }
+.muted { color: var(--muted); }
+.stat-value { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -.04em; }
+.progress-track { height: 7px; background: #2a3040; border-radius: 99px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 99px; }
+.table-wrap { width: 100%; overflow-x: auto; }
+.table-wrap table { min-width: 720px; }
+.kanban-column { min-width: 0; background: #151a26; border: 1px solid var(--border); border-radius: 14px; padding: 14px; }
+.task-card { min-width: 0; background: #1d2331; border: 1px solid #303748; border-radius: 12px; padding: 14px; overflow-wrap: anywhere; }
+.responsive-chart { width: 100%; height: 260px; min-width: 0; }
+
+@media (max-width: 900px) {
+  .page-content { padding: 24px 20px 32px; }
+}
+@media (max-width: 600px) {
+  .page-content { padding: 18px 12px 26px; }
+  .page-heading { flex-direction: column; align-items: stretch; }
+  .page-heading .heading-actions { width: 100%; }
+  .page-heading .heading-actions > button { flex: 1; }
+  .responsive-chart { height: 230px; }
+}
